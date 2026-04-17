@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gurudwara Sikh Temple Estate — Chittagong</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9920a;
+    --gold-light: #f0c040;
+    --gold-pale: #f7e8b0;
+    --deep: #1a0f00;
+    --dark: #2b1a00;
+    --mid: #4a3000;
+    --cream: #fdf6e3;
+    --rust: #8b3a0f;
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--deep); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(26,15,0,0.96);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    border-bottom: 1px solid rgba(201,146,10,0.35);
+  }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 1.05rem; color: var(--gold-light); letter-spacing: 0.08em; line-height: 1.2; }
+  .nav-logo span { display: block; font-size: 0.65rem; color: rgba(247,232,176,0.7); letter-spacing: 0.18em; text-transform: uppercase; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a { font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 600; color: rgba(247,232,176,0.8); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.25s; }
+  nav ul a:hover { color: var(--gold-light); }
+
+  .hero { min-height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding-bottom: 7rem; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(201,146,10,0.18) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(139,58,15,0.25) 0%, transparent 55%), linear-gradient(170deg, #0d0700 0%, #1e1000 45%, #2f1900 100%); }
+  .hero-mandala { position: absolute; top: 50%; right: 5%; transform: translateY(-50%); width: min(560px, 55vw); aspect-ratio: 1; opacity: 0.12; }
+  .hero-content { position: relative; z-index: 2; padding: 0 5rem; max-width: 680px; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.28em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::after { content: ''; flex: 0 0 60px; height: 1px; background: var(--gold); opacity: 0.6; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.06; color: var(--gold-pale); margin-bottom: 0.4rem; }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.22em; color: rgba(247,232,176,0.6); text-transform: uppercase; margin-bottom: 2rem; }
+  .hero-desc { font-size: 1rem; line-height: 1.8; color: rgba(247,232,176,0.75); max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-cta { display: inline-block; padding: 0.85rem 2.4rem; border: 1px solid var(--gold); font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden; }
+  .hero-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; z-index: -1; }
+  .hero-cta:hover { color: var(--deep); }
+  .hero-cta:hover::before { transform: scaleX(1); }
+
+  .divider { text-align: center; padding: 3rem 0 1rem; color: var(--gold); font-size: 1.6rem; letter-spacing: 0.5em; }
+  section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-label::before { content: '✦'; font-size: 0.6rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  #about { background: var(--deep); clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%); padding: 8rem 2rem; }
+  #about .section-title { color: var(--gold-pale); }
+  #about .section-label { color: var(--gold); }
+  .about-grid { display: grid; grid-template-columns: 1fr; margin-top: 3rem; }
+  .about-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(247,232,176,0.78); margin-bottom: 1.2rem; font-weight: 300; }
+  .about-text strong { color: var(--gold-light); font-weight: 600; }
+
+  .stats-strip { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(201,146,10,0.2); }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold-light); line-height: 1; }
+  .stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,232,176,0.5); margin-top: 0.4rem; }
+
+  #history { background: var(--cream); }
+  .timeline { position: relative; margin-top: 3rem; padding-left: 3rem; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+  .timeline-item { position: relative; margin-bottom: 2.8rem; opacity: 0; transform: translateX(-20px); animation: slideIn 0.6s forwards; }
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+  @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+  .timeline-item::before { content: '✦'; position: absolute; left: -2.7rem; color: var(--gold); font-size: 0.7rem; background: var(--cream); padding: 0.15rem 0; }
+  .timeline-year { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.3rem; }
+  .timeline-event { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
+  .timeline-desc { font-size: 0.95rem; line-height: 1.8; color: #5a4020; font-weight: 300; }
+
+  #guru { background: linear-gradient(135deg, #1a0f00 0%, #2e1800 50%, #1a0f00 100%); padding: 8rem 2rem; }
+  #guru .section-title { color: var(--gold-pale); }
+  #guru .section-label { color: var(--gold); }
+  .guru-card { display: grid; grid-template-columns: 1fr; align-items: start; margin-top: 3rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,146,10,0.2); padding: 3rem; }
+  .guru-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 1rem; margin-top: 1.5rem; font-weight: 400; }
+  .guru-info h3:first-child { margin-top: 0; }
+  .guru-info p { font-size: 0.97rem; line-height: 1.9; color: rgba(247,232,176,0.72); font-weight: 300; margin-bottom: 0.8rem; }
+  .guru-info strong { color: var(--gold-light); font-weight: 600; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .pillar { border: 1px solid rgba(201,146,10,0.25); padding: 1.5rem; text-align: center; background: rgba(255,255,255,0.03); }
+  .pillar-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .pillar-title { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .pillar-desc { font-size: 0.85rem; color: rgba(247,232,176,0.6); line-height: 1.6; }
+
+  #visit { background: linear-gradient(160deg, #2b1a00 0%, #1a0f00 100%); padding: 7rem 2rem; }
+  #visit .section-title { color: var(--gold-pale); }
+  #visit .section-label { color: var(--gold); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .visit-map { border: 1px solid rgba(201,146,10,0.3); overflow: hidden; height: 380px; }
+  .visit-map iframe { width: 100%; height: 100%; border: none; filter: saturate(0.7) contrast(1.1); }
+  .visit-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold-light); font-weight: 400; margin-bottom: 1.2rem; }
+  .info-row { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.4rem; padding-bottom: 1.4rem; border-bottom: 1px solid rgba(201,146,10,0.12); }
+  .info-row:last-child { border-bottom: none; }
+  .info-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .info-text { font-size: 0.92rem; line-height: 1.7; color: rgba(247,232,176,0.72); }
+  .info-text strong { color: var(--gold-light); display: block; margin-bottom: 0.2rem; font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .phone-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); text-decoration: none; border: 1px solid rgba(201,146,10,0.3); padding: 0.8rem 1.8rem; margin-top: 1rem; transition: all 0.3s; }
+  .phone-link:hover { background: var(--gold); color: var(--deep); border-color: var(--gold); }
+
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .contact-info p { font-size: 1rem; line-height: 1.9; color: #4a3000; margin-bottom: 1.2rem; font-weight: 300; }
+  .contact-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--dark); padding: 1.4rem 1.6rem; border: 1px solid rgba(201,146,10,0.25); margin-bottom: 1rem; transition: border-color 0.3s; }
+  .contact-card:hover { border-color: var(--gold); }
+  .contact-card-icon { font-size: 1.3rem; }
+  .contact-card-body strong { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+  .contact-card-body span { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gold-pale); }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 0.9rem 1.2rem; background: transparent; border: 1px solid rgba(74,48,0,0.3); font-family: 'Nunito', sans-serif; font-size: 0.92rem; color: var(--dark); outline: none; transition: border-color 0.25s; margin-bottom: 1rem; resize: vertical; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: #a08050; }
+  .contact-form button { background: var(--gold); border: none; padding: 1rem 2.8rem; font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--deep); cursor: pointer; transition: background 0.3s; }
+  .contact-form button:hover { background: var(--gold-light); }
+
+  footer { background: var(--deep); border-top: 1px solid rgba(201,146,10,0.2); padding: 3rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-light); letter-spacing: 0.12em; margin-bottom: 0.5rem; }
+  .footer-sub { font-size: 0.78rem; color: rgba(247,232,176,0.4); letter-spacing: 0.12em; margin-bottom: 1.5rem; }
+  .footer-links { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .footer-links a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,232,176,0.45); text-decoration: none; transition: color 0.25s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.73rem; color: rgba(247,232,176,0.25); letter-spacing: 0.08em; }
+
+  .khanda { text-align: center; font-size: 3rem; color: var(--gold); margin-bottom: 1rem; animation: glow 3s ease-in-out infinite; }
+  @keyframes glow { 0%, 100% { text-shadow: 0 0 10px rgba(201,146,10,0.4); } 50% { text-shadow: 0 0 30px rgba(240,192,64,0.8), 0 0 60px rgba(201,146,10,0.3); } }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .hero-content { padding: 0 2rem; }
+    .guru-card, .visit-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pillars { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+  @media (max-width: 550px) { .hero-title { font-size: 2.6rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    ☬ Gurudwara Sikh Temple Estate
+    <span>Chittagong, Bangladesh · Est. c. 1504</span>
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#guru">Guru Nanak</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-mandala" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="#c9920a" stroke-width="1"/>
+    <circle cx="250" cy="250" r="200" stroke="#c9920a" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="160" stroke="#c9920a" stroke-width="1"/>
+    <circle cx="250" cy="250" r="120" stroke="#c9920a" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="80" stroke="#c9920a" stroke-width="1"/>
+    <circle cx="250" cy="250" r="40" stroke="#c9920a" stroke-width="0.5"/>
+    <g stroke="#c9920a" stroke-width="0.5">
+      <line x1="250" y1="10" x2="250" y2="490"/>
+      <line x1="10" y1="250" x2="490" y2="250"/>
+      <line x1="80" y1="80" x2="420" y2="420"/>
+      <line x1="420" y1="80" x2="80" y2="420"/>
+      <line x1="250" y1="50" x2="250" y2="80"/><line x1="250" y1="420" x2="250" y2="450"/>
+      <line x1="50" y1="250" x2="80" y2="250"/><line x1="420" y1="250" x2="450" y2="250"/>
+    </g>
+    <polygon points="250,110 280,165 330,165 295,210 310,265 250,240 190,265 205,210 170,165 220,165" stroke="#c9920a" stroke-width="0.8" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(0,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(45,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(90,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(135,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(180,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(225,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(270,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <ellipse cx="250" cy="140" rx="18" ry="40" transform="rotate(315,250,250)" stroke="#c9920a" stroke-width="0.5" fill="none"/>
+    <circle cx="250" cy="250" r="6" fill="#c9920a"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-eyebrow">ੴ Ik Onkar — One God</div>
+    <h1 class="hero-title">Gurudwara<br><em>Sikh Temple</em><br>Estate</h1>
+    <p class="hero-subtitle">Chowk Bazar · Chittagong · Bangladesh</p>
+    <p class="hero-desc">A sacred shrine commemorating the blessed visit of <strong style="color:var(--gold-light)">Guru Nanak Dev Ji</strong> in 1507–08. One of the oldest Sikh holy places in Bengal, standing as a beacon of faith, brotherhood, and universal love for over five centuries.</p>
+    <a href="#about" class="hero-cta">Discover the Shrine</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Our Sacred Heritage</div>
+    <h2 class="section-title">A Sanctuary of <em>Faith & Peace</em></h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>The <strong>Gurudwara Sikh Temple Estate</strong> of Chittagong stands at Chowk Bazar in the heart of the city, on the right bank of the <strong>Karnaphuli River</strong>. It is one of the most historically significant Sikh shrines in all of Bangladesh, and a spiritual landmark of immeasurable importance.</p>
+        <p>The site commemorates the visit of the founder of Sikhism, <strong>Guru Nanak Dev Ji</strong>, who is believed to have halted here around <strong>1507–08 CE</strong> on his great spiritual journeys across Asia. During his stay, he held religious discourses, converted local followers, and preached the message of One God and universal brotherhood.</p>
+        <p>The Gurudwara was originally established as a <em>Manji</em> (a Sikh meeting place) by Bhai Jhanda, a devoted carpenter who became one of Guru Nanak's earliest disciples in this region. The current building was completed in <strong>1830</strong>, renovated in 1971–72 after Bangladesh's liberation, and further preserved in 1988–89.</p>
+        <p>An ancient well adjoining the temple — still in use today — is believed to date back to the time of the Guru's visit, a living relic of this holy site's extraordinary age.</p>
+      </div>
+    </div>
+    <div class="stats-strip">
+      <div class="stat fade-in"><div class="stat-num">1504</div><div class="stat-label">Year Established</div></div>
+      <div class="stat fade-in"><div class="stat-num">500+</div><div class="stat-label">Years of History</div></div>
+      <div class="stat fade-in"><div class="stat-num">1830</div><div class="stat-label">Building Completed</div></div>
+      <div class="stat fade-in"><div class="stat-num">∞</div><div class="stat-label">Open to All Faiths</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <div class="section-inner">
+    <div class="section-label">Through the Ages</div>
+    <h2 class="section-title">A <em>Living Chronicle</em> of Devotion</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">c. 1507–08 CE</div>
+        <div class="timeline-event">Guru Nanak's Sacred Visit</div>
+        <div class="timeline-desc">Guru Nanak Dev Ji halts at Chittagong on his great spiritual journey. He holds religious discourses at Chowk Bazar, preaching the gospel of One God and universal brotherhood. A devoted carpenter named Bhai Jhanda becomes his first disciple here. Later, Prince Indra Sen and King Sudhar Sen also accept the Guru's teachings.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">c. Early 1600s</div>
+        <div class="timeline-event">Manji Established — Bhai Natha</div>
+        <div class="timeline-desc">A missionary named Bhai Natha, who had come to Dhaka during the time of the 6th Sikh Guru, establishes the Manji (Sikh meeting place) at the Chowk Bazar site, formalising it as a centre of Sikh worship in Bengal.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1740–1756</div>
+        <div class="timeline-event">Bhai Mohan Singh's Endowment</div>
+        <div class="timeline-desc">Bhai Mohan Singh, a Sikh who rose to become Diwan (Revenue Minister) of Nawab Ali Vardi Khan of Bengal, donates substantial property to the Gurudwara. The Nawab makes the endowment rent-free, ensuring the shrine's maintenance.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1830</div>
+        <div class="timeline-event">The Temple Building Completed</div>
+        <div class="timeline-desc">After a period of neglect and gradual rebuilding, the Gurudwara's main building is completed in 1830. It continues to serve as the principal Sikh place of worship in the Chittagong region.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1917</div>
+        <div class="timeline-event">Committee Management Formed</div>
+        <div class="timeline-desc">Following the death of the last Udasi mahant, the District Judge of Chittagong forms an 11-member management committee — a system that continues to this day under the Bangladesh Gurdwara Management Committee.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1971–72 &amp; 1988–89</div>
+        <div class="timeline-event">Renovation &amp; Preservation</div>
+        <div class="timeline-desc">After Bangladesh's liberation, essential repairs are carried out. A further full renovation is undertaken in 1988–89 with contributions from Guru Nanak's followers across Bangladesh and the world, including construction of an outer verandah for the building's protection.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guru">
+  <div class="section-inner">
+    <div class="khanda">☬</div>
+    <div class="section-label">The Founder of Sikhism</div>
+    <h2 class="section-title">Guru Nanak <em>Dev Ji</em></h2>
+    <div class="guru-card fade-in">
+      <div class="guru-info">
+        <h3>Birth &amp; Early Life</h3>
+        <p><strong>Guru Nanak Dev Ji</strong> was born on 15 April 1469 in the village of Talwandi (now Nankana Sahib, Pakistan) to a Hindu family. From childhood he displayed remarkable wisdom and spiritual insight, astounding his teachers with deep knowledge. By age 16, he was fluent in Sanskrit, Persian, and Hindi. He rejected the caste system, empty rituals, and idol worship from a young age, and championed the dignity and equality of women.</p>
+        <h3>Spiritual Awakening &amp; The Udasis</h3>
+        <p>At age 28, Guru Nanak had a profound spiritual awakening at the Bein River and proclaimed: <em>"Na koi Hindu, na koi Musalman"</em> — "There is no Hindu, there is no Muslim" — declaring God's oneness beyond all religious divides. He then undertook four great journeys (Udasis) from 1500 to 1524, travelling across India, Tibet, Arabia, and Persia, accompanied by his devoted companion <strong>Bhai Mardana</strong>. It is during these journeys that he visited Chittagong.</p>
+        <h3>His Message to the World</h3>
+        <p>Guru Nanak's teachings are enshrined in the sacred scripture <strong>Guru Granth Sahib Ji</strong>. He contributed 974 poetic hymns, emphasising God's oneness, equality of all humankind, rejection of discrimination, and a life of selfless service. He established <strong>Langar</strong> — the community free kitchen — as a living symbol of equality, where all sit together regardless of caste, faith, or status.</p>
+        <h3>His Legacy at This Shrine</h3>
+        <p>This very Gurudwara commemorates the Guru's blessed stay in Chittagong. His encounter with Bhai Jhanda, Prince Indra Sen, and King Sudhar Sen transformed this city into a seat of Sikh faith in Bengal. <strong>Guru Nanak Dev Ji passed away on 22 September 1539</strong> in Kartarpur, leaving behind a faith that today has over 30 million followers worldwide.</p>
+        <div class="pillars">
+          <div class="pillar"><div class="pillar-icon">🙏</div><div class="pillar-title">Naam Japna</div><div class="pillar-desc">Remember the Divine Name — meditate, pray, and keep God in all you do.</div></div>
+          <div class="pillar"><div class="pillar-icon">⚖️</div><div class="pillar-title">Kirat Karni</div><div class="pillar-desc">Live honestly — earn your livelihood with integrity and hard work.</div></div>
+          <div class="pillar"><div class="pillar-icon">🤲</div><div class="pillar-title">Vand Chakna</div><div class="pillar-desc">Share what you have — give selflessly of your time, wealth, and love.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="section-inner">
+    <div class="section-label">Plan Your Pilgrimage</div>
+    <h2 class="section-title">Find Us in <em>Chittagong</em></h2>
+    <div class="visit-grid fade-in">
+      <div class="visit-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.4839!2d91.8358!3d22.3383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a57f84b2ef%3A0x0!2sChowk+Bazar%2C+Chittagong%2C+Bangladesh!5e0!3m2!1sen!2sbd!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Gurudwara Sikh Temple Estate Location"></iframe>
+      </div>
+      <div class="visit-info">
+        <h3>Visitor Information</h3>
+        <div class="info-row"><div class="info-icon">📍</div><div class="info-text"><strong>Address</strong>Gurudwara Sikh Temple Estate<br>Chowk Bazar, Ward 21 (Kotwali),<br>Chattogram (Chittagong), Bangladesh</div></div>
+        <div class="info-row"><div class="info-icon">🕐</div><div class="info-text"><strong>Opening Hours</strong>Open Daily — Dawn to Dusk<br>Special services on Gurpurabs &amp; festivals<br><em>All visitors welcome, regardless of faith</em></div></div>
+        <div class="info-row"><div class="info-icon">🌏</div><div class="info-text"><strong>Nearby Landmarks</strong>Near PDB Colony Jame Masjid<br>Close to Mohsin College (380m NE)<br>Near Miskin Shah Jame Masjid</div></div>
+        <div class="info-row"><div class="info-icon">👗</div><div class="info-text"><strong>Dress Code &amp; Etiquette</strong>Cover your head before entering<br>Remove footwear at the entrance<br>Modest, respectful clothing required</div></div>
+        <a href="tel:+8801984965300" class="phone-link">📞 +880 1984-965300</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Reach Out</div>
+    <h2 class="section-title">Contact <em>the Temple</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Whether you are planning a pilgrimage, seeking information about Sikh history in Bangladesh, or wishing to make a donation for the preservation of this sacred site — we welcome your outreach. The Gurudwara is administered by the <strong>Bangladesh Gurdwara Management Committee</strong>.</p>
+        <p>Pilgrims visiting for Guru Nanak's birth anniversary (celebrated in November) can arrange boarding and lodging through the Gurdwara for up to a week's stay during this auspicious celebration.</p>
+        <div class="contact-card"><div class="contact-card-icon">📞</div><div class="contact-card-body"><strong>Phone</strong><span>+880 1984-965300</span></div></div>
+        <div class="contact-card"><div class="contact-card-icon">🌐</div><div class="contact-card-body"><strong>Website (Official)</strong><span>bangladeshgurdwaras.org</span></div></div>
+        <div class="contact-card"><div class="contact-card-icon">📍</div><div class="contact-card-body"><strong>Location</strong><span>Chowk Bazar, Chittagong, Bangladesh</span></div></div>
+        <div class="contact-card"><div class="contact-card-icon">🏛️</div><div class="contact-card-body"><strong>Administered By</strong><span>Bangladesh Gurdwara Management Committee</span></div></div>
+      </div>
+      <div class="contact-form fade-in">
+        <input type="text" placeholder="Your Full Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="tel" placeholder="Phone Number (optional)" />
+        <textarea rows="5" placeholder="Your message — pilgrimage inquiry, donation, or general question…"></textarea>
+        <button type="button" onclick="this.textContent='✓ Message Sent — Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh!'; this.style.background='#2b7a0e';">Send Message ✦</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">☬ Gurudwara Sikh Temple Estate</div>
+  <div class="footer-sub">Chowk Bazar · Chittagong · Bangladesh · Est. c. 1504 CE</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#guru">Guru Nanak</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">ੴ Ik Onkar — One Creator God · In service of all humanity · +880 1984-965300</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold-light)' : ''; });
+  });
+</script>
+</body>
+</html>
